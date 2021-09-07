@@ -1,0 +1,56 @@
+<div class="row searchBar">
+  <div class="col-4"></div>
+  <div class="col-4">
+    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchKey">
+  </div>
+  <div class="col-4"></div>
+</div>
+
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <table class="table table-bordered tableClass table-striped table-hover">
+      <thead class="thead-dark" class="tableHead">
+        <tr class="tableRow">
+          <th class="textAlignRight">Question ID</th>
+          <th class="textAlignRight">Answer ID</th>
+          <th class="textAlignLeft">Owner</th>
+          <th class="textAlignRight">Is Accepted</th>
+          <th class="textAlignRight">Score</th>
+          <th class="textAlignRight">Reputation</th>
+          <th class="textAlignRight">User Id</th>
+          <th class="textAlignLeft">User Type</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="!allFieldsAndParameters">
+        <tr>
+          Loading . . .
+        </tr>
+      </tbody>
+      <tbody *ngIf="allFieldsAndParameters">
+        <tr class="tableRow" *ngFor="let row of allFieldsAndParameters.items  | searchFilter: searchKey | paginate:{ itemsPerPage: 8, currentPage: p }">
+          <td class="textAlignRight">{{ row.question_id }}</td>
+          <td class="textAlignRight">{{ row.answer_id }}</td>
+          <td class="textAlignLeft">{{ row.owner.display_name }}</td>
+          <td class="textAlignRight">{{ row.is_accepted }}</td>
+          <td class="textAlignRight">{{ row.score }}</td>
+          <td class="textAlignRight">{{ row.owner.reputation }}</td>
+          <td class="textAlignRight">{{ row.owner.user_id }}</td>
+          <td class="textAlignLeft">{{ row.owner.user_type }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-1"></div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-4"></div>
+  <div class="col-4">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  <div class="col-4"></div>
+</div>
+<router-outlet></router-outlet>

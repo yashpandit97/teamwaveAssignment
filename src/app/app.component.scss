@@ -1,0 +1,52 @@
+.tableClass{
+    padding: 0 10px 0 10px !important;
+    border-radius: 6px !important;
+}
+
+.tableHead{
+    background-color: #511191;
+    color: white
+}
+
+.textAlignRight{
+    text-align: right;
+}
+
+.textAlignLeft{
+    text-align: left;
+}
+
+.searchBar{
+    margin: 10px
+}
+
+.tableRow{
+    border-radius: 6px;
+}
+
+table {
+    padding: 10px 10px 10px 10px !important;
+}
+
+::ng-deep .ngx-pagination .current {
+    background-color: #511191 !important;
+}
+
+::ng-deep .form-control {
+    color: #511191 !important;
+}
+
+
+::ng-deep .form-control:focus {
+    border-color: #511191 !important;
+    border: 1px solid #511191 !important;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: #e7daf5;
+ }
+
+ ::ng-deep .table-bordered {
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
