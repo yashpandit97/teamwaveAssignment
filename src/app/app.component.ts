@@ -18,8 +18,7 @@ export class AppComponent implements OnInit {
     this.dataService.getAllFieldsAndParameters().subscribe(data => {
       if(data)
       {
-        this.allFieldsAndParameters = data?.body;
-        console.log(this.allFieldsAndParameters);
+        this.allFieldsAndParameters = data.body;
       }
     })
   }
